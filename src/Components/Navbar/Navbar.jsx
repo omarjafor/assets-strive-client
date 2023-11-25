@@ -10,6 +10,7 @@ const Navbar = () => {
     const [scrollvalue, setScrollvalue] = useState(0)
     const { user, logOut } = useAuth();
     const navigate = useNavigate();
+    const isAdmin = false;
 
     const changeTheme = () => {
         const html = document.documentElement;
@@ -51,57 +52,121 @@ const Navbar = () => {
         <>
             <li><NavLink to='/'
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-600 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
             >Home</NavLink></li>
-            <li><NavLink to='/joinemployee'
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
-            >Join as Employee</NavLink></li>
-            <li><NavLink to='/joinadmin'
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
-            >Join as HR/Admin</NavLink></li>
             {
-                user?.email &&
-                <li><NavLink to='/profile'
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
-                >Profile</NavLink></li>
-            }
-            {
-                user?.email ?
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-square avatar">
-                            <div className="w-10 rounded-lg">
-                                <img src={user.photoURL} alt={user.displayName} />
-                            </div>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <button className="">{user.displayName}</button>
-                            </li>
-                            <li>
-                                <button className="">{user.email}</button>
-                            </li>
-                            <li>
-                                <button className="btn btn-sm  btn-ghost"
-                                    onClick={handleLogOut}
-                                >Logout</button>
+                user?.email ? <>
+                    {
+                        isAdmin ? <>
+                            <li><NavLink to='/myassets'
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                            >Asset List</NavLink></li>
+                            <li><NavLink to='/myteam'
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                            >Add an Asset</NavLink></li>
+                            <li><NavLink to='/requestasset'
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                            >Request for an Asset</NavLink></li>
+                            <li><NavLink to='/customrequest'
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                            >Make a Custom Request</NavLink></li>
+                            <li><NavLink to='/profile'
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                            >Profile</NavLink></li>
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="btn btn-ghost btn-square avatar">
+                                    <div className="w-10 rounded-lg">
+                                        <img src={user.photoURL} alt={user.displayName} />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <button className="">{user.displayName}</button>
+                                    </li>
+                                    <li>
+                                        <button className="">{user.email}</button>
+                                    </li>
+                                    <li>
+                                        <button className="btn btn-sm  btn-ghost"
+                                            onClick={handleLogOut}
+                                        >Logout</button>
 
-                            </li>
-                        </ul>
-                    </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </>
+                            :
+                            <>
+                                <li><NavLink to='/myassets'
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                                >My Assets</NavLink></li>
+                                <li><NavLink to='/myteam'
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                                >My Team</NavLink></li>
+                                <li><NavLink to='/requestasset'
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                                >Request for an Asset</NavLink></li>
+                                <li><NavLink to='/customrequest'
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                                >Make a Custom Request</NavLink></li>
+                                <li><NavLink to='/profile'
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                                >Profile</NavLink></li>
+                                <div className="dropdown dropdown-end">
+                                    <label tabIndex={0} className="btn btn-ghost btn-square avatar">
+                                        <div className="w-10 rounded-lg">
+                                            <img src={user.photoURL} alt={user.displayName} />
+                                        </div>
+                                    </label>
+                                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                        <li>
+                                            <button className="">{user.displayName}</button>
+                                        </li>
+                                        <li>
+                                            <button className="">{user.email}</button>
+                                        </li>
+                                        <li>
+                                            <button className="btn btn-sm  btn-ghost"
+                                                onClick={handleLogOut}
+                                            >Logout</button>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </>
+                    }
+                </>
                     :
-                    <div className='space-x-2 flex flex-col lg:flex-row'>
-                        <NavLink to='/login' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold text-indigo-900 dark:text-blue-400 mt-2 text-lg"}>Login
-                        </NavLink>
-                    </div>
+                    <>
+                        <li><NavLink to='/joinemployee'
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                        >Join as Employee</NavLink></li>
+                        <li><NavLink to='/joinadmin'
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                        >Join as HR/Admin</NavLink></li>
+                        <div className='space-x-2 flex flex-col lg:flex-row'>
+                            <NavLink to='/login' className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold text-indigo-900 dark:text-blue-400 mt-2 text-lg"}>Login
+                            </NavLink>
+                        </div>
+                    </>
             }
         </>
 
     return (
-        <nav className={scrollvalue > 10 ? "navbar px-10 lg:px-24 sticky top-0 z-20 bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 dark:from-gray-700 dark:via-gray-900 dark:to-black" : "navbar px-10 lg:px-24 sticky top-0 z-20 bg-gradient-to-r from-sky-400 to-cyan-300 dark:from-gray-500 dark:via-gray-900 dark:to-black"}>
+        <nav className={scrollvalue > 10 ? "navbar px-10 lg:px-24 sticky top-0 z-20 bg-transparent dark:from-gray-700 dark:via-gray-900 dark:to-black" : "navbar px-10 lg:px-24 sticky top-0 z-20 bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 dark:from-gray-500 dark:via-gray-900 dark:to-black"}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
