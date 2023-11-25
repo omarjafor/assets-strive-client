@@ -50,7 +50,7 @@ const Navbar = () => {
 
     const navLink =
         <>
-            <li><NavLink to={user?.email ? `${isAdmin ? '/adminHome' : '/userHome'}` : '/'}
+            <li><NavLink to={user?.email ? `${isAdmin ? '/admin/home' : '/user/home'}` : '/'}
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-600 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
             >Home</NavLink></li>

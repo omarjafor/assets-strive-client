@@ -6,6 +6,8 @@ import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
 import Login from "../Pages/Login/Login";
 import UserHome from "../Pages/UserHome/UserHome";
 import AdminHome from "../Pages/AdminHome/AdminHome";
+import AdminLayout from "../Layout/adminlayout";
+import UserLayout from "../Layout/UserLayout";
 
 const router = createBrowserRouter([
     {
@@ -19,17 +21,23 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: '/adminHome',
-        element: <AdminHome></AdminHome>,
+        path: '/admin',
+        element: <AdminLayout></AdminLayout>,
         children: [
-
+            {
+                path: 'home',
+                element: <AdminHome></AdminHome>
+            }
         ]
     },
     {
-        path: '/userHome',
-        element: <UserHome></UserHome>,
+        path: '/user',
+        element: <UserLayout></UserLayout>,
         children: [
-
+            {
+                path:'home',
+                element: <UserHome></UserHome>
+            }
         ]
     },
     {
