@@ -50,7 +50,7 @@ const Navbar = () => {
 
     const navLink =
         <>
-            <li><NavLink to='/'
+            <li><NavLink to={user?.email ? `${isAdmin ? '/adminHome' : '/userHome'}` : '/'}
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-600 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
             >Home</NavLink></li>
@@ -58,22 +58,30 @@ const Navbar = () => {
                 user?.email ? <>
                     {
                         isAdmin ? <>
-                            <li><NavLink to='/myassets'
+                            <li><NavLink to='/assetlist'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >Asset List</NavLink></li>
-                            <li><NavLink to='/myteam'
+                            <li><NavLink to='/addanasset'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >Add an Asset</NavLink></li>
-                            <li><NavLink to='/requestasset'
+                            <li><NavLink to='/allrequests'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
-                            >Request for an Asset</NavLink></li>
-                            <li><NavLink to='/customrequest'
+                            >All Requests</NavLink></li>
+                            <li><NavLink to='/customrequestlist'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
-                            >Make a Custom Request</NavLink></li>
+                            >Custom Requests List</NavLink></li>
+                            <li><NavLink to='/employeelist'
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                            >My Employee List</NavLink></li>
+                            <li><NavLink to='/addemployee'
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
+                            >Add an Employee</NavLink></li>
                             <li><NavLink to='/profile'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}

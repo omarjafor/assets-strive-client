@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
 import Login from "../Pages/Login/Login";
+import UserHome from "../Pages/UserHome/UserHome";
+import AdminHome from "../Pages/AdminHome/AdminHome";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +16,20 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             }
+        ]
+    },
+    {
+        path: '/adminHome',
+        element: <AdminHome></AdminHome>,
+        children: [
+
+        ]
+    },
+    {
+        path: '/userHome',
+        element: <UserHome></UserHome>,
+        children: [
+
         ]
     },
     {
