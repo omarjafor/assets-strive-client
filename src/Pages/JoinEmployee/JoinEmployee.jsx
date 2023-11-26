@@ -6,8 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const JoinEmployee = () => {
+    const axiosPublic = useAxiosPublic();
 
     const [registError, setRegistError] = useState('');
     const [showPass, setShowPass] = useState(false);
@@ -36,10 +38,10 @@ const JoinEmployee = () => {
         }
         setRegistError('');
 
+        const toastId = toast.loading('Your Registration in....')
         createUser(email, password)
             .then(res => {
                 console.log(res.user);
-                toast.success('User Registration Successful')
                 e.target.reset();
                 navigate('/login');
 
@@ -48,6 +50,18 @@ const JoinEmployee = () => {
                     photoURL: img
                 }).then(() => {
                     console.log('Profile Updated')
+                    const userInfo = {
+                        name, email, img, birthdate, role: 'user'
+                    }
+                    console.log(userInfo);
+                    axiosPublic.post('/users', userInfo)
+                        .then(res => {
+                            if (res.data.insertedId) {
+                                console.log('user added to the database')
+                                toast.success('Your Registration Successful', { id: toastId })
+                                navigate('/login');
+                            }
+                        })
                 }).catch(err => {
                     console.log(err.message)
                 })
@@ -58,19 +72,33 @@ const JoinEmployee = () => {
             })
             .catch(err => {
                 console.error(err)
+                toast.error('Your Registration Error', { id: toastId });
                 setRegistError(err.message)
             })
     }
 
     const handleGoogleSignIn = () => {
+        const toastId = toast.loading('Your Login in....');
         googleSignIn()
             .then(res => {
                 console.log(res.user)
-                toast.success('User Login Successfull')
-                navigate(location?.state ? location.state : '/');
+                const userInfo = {
+                    email: res.user?.email,
+                    name: res.user?.displayName,
+                    img: res.user?.photoURL,
+                    role: 'user'
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/user/home')
+                    })
+                toast.success('Your Login Successfull', { id: toastId })
+                navigate(location?.state ? location.state : '/user/home');
             })
             .catch(err => {
                 console.log(err.message)
+                toast.error('Your Login Error', { id: toastId });
             })
     }
 

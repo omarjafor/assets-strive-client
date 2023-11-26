@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from '../../../public/logo.png';
+import useAdmin from "../../Hooks/useAdmin";
 
 
 const Navbar = () => {
@@ -10,7 +11,7 @@ const Navbar = () => {
     const [scrollvalue, setScrollvalue] = useState(0)
     const { user, logOut } = useAuth();
     const navigate = useNavigate();
-    const isAdmin = false;
+    const [ isAdmin ] = useAdmin();
 
     const changeTheme = () => {
         const html = document.documentElement;
@@ -126,7 +127,7 @@ const Navbar = () => {
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >Make a Custom Request</NavLink></li>
-                                <li><NavLink to='/user/profile'
+                                <li><NavLink to='/profile'
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >Profile</NavLink></li>

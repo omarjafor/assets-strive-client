@@ -6,9 +6,10 @@ import toast from 'react-hot-toast';
 import auth from '../../Firebase/firebase.config';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const Login = () => {
-
+    const axiosPublic = useAxiosPublic();
     const location = useLocation();
 
     const { signIn, googleSignIn } = useAuth();
@@ -17,7 +18,6 @@ const Login = () => {
     const [registError, setRegistError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [showPass, setShowPass] = useState(false);
-
     const navigate = useNavigate();
 
     const handleLogin = e => {
@@ -26,28 +26,44 @@ const Login = () => {
         const password = e.target.password.value;
         setRegistError('');
 
+        const toastId = toast.loading('Your Login in....')
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
                 e.target.reset();
-                toast.success('User Login successfull');
+                toast.success('Your Login successfull', { id: toastId });
                 navigate(location?.state ? location.state : '/user/home');
             })
             .catch(error => {
                 console.log(error.message);
+                toast.error('Your Login Error', { id: toastId });
                 setRegistError('Check Your Email or Password');
             })
     }
 
     const handleGoogleSignIn = () => {
+
+        const toastId = toast.loading('Your Login in....')
         googleSignIn()
             .then(res => {
                 console.log(res.user)
-                toast.success('User Login Successfull')
+                const userInfo = {
+                    email: res.user?.email,
+                    name: res.user?.displayName,
+                    img: res.user?.photoURL,
+                    role: 'user'
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/user/home')
+                    })
+                toast.success('Your Login successfull', { id: toastId });
                 navigate(location?.state ? location.state : '/');
             })
             .catch(err => {
                 console.log(err.message)
+                toast.error('Your Login Error', { id: toastId });
             })
     }
 
