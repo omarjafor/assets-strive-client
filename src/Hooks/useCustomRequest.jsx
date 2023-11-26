@@ -7,7 +7,7 @@ const useCustomRequest = () => {
     const {user, loading} = useAuth();
     const axiosSecure = useAxiosSecure();
 
-    const { data: customRequest, isLoading } = useQuery({
+    const { data: customRequest, isLoading, refetch } = useQuery({
         queryKey: [user?.email, user],
         enabled: !loading,
         queryFn: async () => {
@@ -16,7 +16,7 @@ const useCustomRequest = () => {
         }
     })
 
-    return { customRequest, isLoading };
+    return { customRequest, isLoading, refetch };
 };
 
 export default useCustomRequest;
