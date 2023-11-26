@@ -31,7 +31,7 @@ const Login = () => {
                 console.log(result.user);
                 e.target.reset();
                 toast.success('User Login successfull');
-                navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/user/home');
             })
             .catch(error => {
                 console.log(error.message);

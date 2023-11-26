@@ -5,7 +5,7 @@ const About = () => {
         <div className="sm:flex items-center max-w-screen-xl mx-auto  p-12 lg:p-6 dark:bg-gray-900 dark:text-white">
             <div className="sm:w-1/2 p-10">
                 <div className="image object-center text-center">
-                    <img src="https://i.ibb.co/nfgT4s7/about.png" />
+                    <img src="https://i.ibb.co/SPz2bzj/about.png" />
                 </div>
             </div>
             <div className="sm:w-1/2">
