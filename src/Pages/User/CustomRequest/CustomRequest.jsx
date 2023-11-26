@@ -59,7 +59,7 @@ const CustomRequest = () => {
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex gap-6">
-                        {/* category */}
+                        
                         <div className="form-control w-full my-6">
                             <label className="label">
                                 <span className="label-text">Asset Name</span>
@@ -72,7 +72,6 @@ const CustomRequest = () => {
                                 className="input input-bordered w-full" />
                         </div>
 
-                        {/* price */}
                         <div className="form-control w-full my-6">
                             <label className="label">
                                 <span className="label-text">Why You Need This</span>
@@ -87,7 +86,6 @@ const CustomRequest = () => {
 
                     </div>
                     <div className="flex gap-6">
-                        {/* category */}
                         <div className="form-control w-full my-6">
                             <label className="label">
                                 <span className="label-text">Asset Type</span>
@@ -100,7 +98,6 @@ const CustomRequest = () => {
                             </select>
                         </div>
 
-                        {/* price */}
                         <div className="form-control w-full my-6">
                             <label className="label">
                                 <span className="label-text">Price</span>
@@ -113,7 +110,6 @@ const CustomRequest = () => {
                         </div>
 
                     </div>
-                    {/* recipe details */}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Additional information</span>
