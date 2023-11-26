@@ -4,7 +4,6 @@ import Home from "../Pages/Home/Home";
 import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
 import Login from "../Pages/Login/Login";
-import UserHome from "../Pages/User/UserHome";
 import AdminHome from "../Pages/Admin/AdminHome";
 import AdminLayout from "../Layout/adminlayout";
 import UserLayout from "../Layout/UserLayout";
@@ -12,6 +11,7 @@ import MyAssets from "../Pages/User/MyAssets/MyAssets";
 import MyTeam from "../Pages/User/MyTeam/MyTeam";
 import RequestAsset from "../Pages/User/RequestAsset/RequestAsset";
 import CustomRequest from "../Pages/User/CustomRequest/CustomRequest";
+import UserHome from "../Pages/User/UserHome/UserHome";
 
 const router = createBrowserRouter([
     {

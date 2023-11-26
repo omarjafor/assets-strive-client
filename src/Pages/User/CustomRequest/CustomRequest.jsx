@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { IoIosSend } from "react-icons/io";
-import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
+import toast from 'react-hot-toast';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -45,13 +45,7 @@ const CustomRequest = () => {
             const customRes = await axiosSecure.post('/customrequests', requestInfo);
             if (customRes.data.insertedId) {
                 reset();
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: `${data.name} is Added To Custom Request`,
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                toast.success(`${data.name} is Added To Custom Request`)
             }
         }
     };
