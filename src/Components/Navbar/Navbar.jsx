@@ -110,23 +110,23 @@ const Navbar = () => {
                         </>
                             :
                             <>
-                                <li><NavLink to='/myassets'
+                                <li><NavLink to='/user/myassets'
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >My Assets</NavLink></li>
-                                <li><NavLink to='/myteam'
+                                <li><NavLink to='/user/myteam'
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >My Team</NavLink></li>
-                                <li><NavLink to='/requestasset'
+                                <li><NavLink to='/user/requestasset'
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >Request for an Asset</NavLink></li>
-                                <li><NavLink to='/customrequest'
+                                <li><NavLink to='/user/customrequest'
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >Make a Custom Request</NavLink></li>
-                                <li><NavLink to='/profile'
+                                <li><NavLink to='/user/profile'
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >Profile</NavLink></li>
