@@ -12,6 +12,7 @@ import MyTeam from "../Pages/User/MyTeam/MyTeam";
 import RequestAsset from "../Pages/User/RequestAsset/RequestAsset";
 import CustomRequest from "../Pages/User/CustomRequest/CustomRequest";
 import UserHome from "../Pages/User/UserHome/UserHome";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path:'home',
-                element: <UserHome></UserHome>
+                element: <PrivateRoute><UserHome></UserHome></PrivateRoute>
             },
             {
                 path: 'myassets',
