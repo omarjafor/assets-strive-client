@@ -60,7 +60,7 @@ const RequestCard = ({ items, index, refetch }) => {
                     <td>{type}</td>
                     <td>
                         <button
-                            onClick={() => handleDetails(items)}
+                            onClick={handleDetails}
                             className="btn btn-ghost btn-lg"> Details
                         </button>
                     </td>

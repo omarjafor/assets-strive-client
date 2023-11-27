@@ -13,6 +13,12 @@ import RequestAsset from "../Pages/User/RequestAsset/RequestAsset";
 import CustomRequest from "../Pages/User/CustomRequest/CustomRequest";
 import UserHome from "../Pages/User/UserHome/UserHome";
 import PrivateRoute from "./PrivateRoute";
+import AssetList from "../Pages/Admin/AssetList/AssetList";
+import AddAnAsset from "../Pages/Admin/AddAnAsset/AddAnAsset";
+import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
+import CustomRequestList from "../Pages/Admin/CustomRequestList/CustomRequestList";
+import EmployeeList from "../Pages/Admin/EmployeeList/EmployeeList";
+import AddAnEmployee from "../Pages/Admin/AddAnEmployee/AddAnEmployee";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +38,30 @@ const router = createBrowserRouter([
             {
                 path: 'home',
                 element: <AdminHome></AdminHome>
+            },
+            {
+                path: 'assetlist',
+                element: <AssetList></AssetList>
+            },
+            {
+                path: 'addanasset',
+                element: <AddAnAsset></AddAnAsset>
+            },
+            {
+                path: 'allrequests',
+                element: <AllRequests></AllRequests>
+            },
+            {
+                path: 'customrequestlist',
+                element: <CustomRequestList></CustomRequestList>
+            },
+            {
+                path: 'employeelist',
+                element: <EmployeeList></EmployeeList>
+            },
+            {
+                path: 'addemployee',
+                element: <AddAnEmployee></AddAnEmployee>
             }
         ]
     },

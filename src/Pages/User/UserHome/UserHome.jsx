@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import useAdmin from "../../../Hooks/useAdmin";
 import useAuth from "../../../Hooks/useAuth";
 import useEmployee from "../../../Hooks/useEmployee";
 import MyCustomRequest from "./MyCustomRequest/MyCustomRequest";
@@ -6,7 +8,7 @@ import MyCustomRequest from "./MyCustomRequest/MyCustomRequest";
 const UserHome = () => {
     const { user, loading } = useAuth();
     const { isEmployee, isEmployeeLoading } = useEmployee();
-    console.log(isEmployee, isEmployeeLoading);
+    const [ isAdmin ] = useAdmin();
 
     if ( loading || isEmployeeLoading ) return (
         <div className="mx-auto items-center text-center">
@@ -52,6 +54,14 @@ const UserHome = () => {
                     <>
                         <MyCustomRequest></MyCustomRequest>
                     </>
+                    :
+                    isAdmin ? <>
+                        <div className="text-center my-4 items-center">
+                            <div className="text-2xl font-bold text-gray-900 sm:text-3xl">
+                                {user?.displayName}, Please Go To Admin <Link to='/admin/home' className="text-green-600">Home</Link>
+                            </div>
+                        </div>
+                    </> 
                     :
                     <>
                         <div className="text-center my-4 items-center">
