@@ -59,7 +59,7 @@ const Login = () => {
                         navigate('/user/home')
                     })
                 toast.success('Your Login successfull', { id: toastId });
-                navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/user/home');
             })
             .catch(err => {
                 console.log(err.message)
