@@ -59,27 +59,27 @@ const Navbar = () => {
                 user?.email ? <>
                     {
                         isAdmin ? <>
-                            <li><NavLink to='/assetlist'
+                            <li><NavLink to='/admin/assetlist'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >Asset List</NavLink></li>
-                            <li><NavLink to='/addanasset'
+                            <li><NavLink to='/admin/addanasset'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >Add an Asset</NavLink></li>
-                            <li><NavLink to='/allrequests'
+                            <li><NavLink to='/admin/allrequests'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >All Requests</NavLink></li>
-                            <li><NavLink to='/customrequestlist'
+                            <li><NavLink to='/admin/customrequestlist'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >Custom Requests List</NavLink></li>
-                            <li><NavLink to='/employeelist'
+                            <li><NavLink to='/admin/employeelist'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >My Employee List</NavLink></li>
-                            <li><NavLink to='/addemployee'
+                            <li><NavLink to='/admin/addemployee'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >Add an Employee</NavLink></li>
