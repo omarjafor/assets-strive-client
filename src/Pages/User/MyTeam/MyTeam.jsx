@@ -1,9 +1,14 @@
+import TeamMemberList from "./TeamMemberList";
+import UpcomingEvents from "./UpcomingEvents";
 
 
 const MyTeam = () => {
+
     return (
         <div>
-            My Team Page
+            <UpcomingEvents></UpcomingEvents>
+
+            <TeamMemberList></TeamMemberList>
         </div>
     );
 };
