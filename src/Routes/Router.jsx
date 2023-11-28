@@ -19,6 +19,8 @@ import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
 import CustomRequestList from "../Pages/Admin/CustomRequestList/CustomRequestList";
 import EmployeeList from "../Pages/Admin/EmployeeList/EmployeeList";
 import AddAnEmployee from "../Pages/Admin/AddAnEmployee/AddAnEmployee";
+import Profile from "../Pages/Profile/Profile";
+import Payment from "../Pages/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
             {
                 path: 'addemployee',
                 element: <AddAnEmployee></AddAnEmployee>
+            },
+            {
+                path: 'profile',
+                element: <Profile></Profile>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             }
         ]
     },
@@ -88,6 +98,10 @@ const router = createBrowserRouter([
             {
                 path: 'customrequest',
                 element: <CustomRequest></CustomRequest>
+            },
+            {
+                path: 'profile',
+                element: <Profile></Profile>
             }
         ]
     },
