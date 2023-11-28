@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Banner = () => {
@@ -11,7 +12,7 @@ const Banner = () => {
                         <h2 className='text-2xl lg:text-6xl font-bold'>Join As Admin and Empower Operations, Drive Efficiency!</h2>
                         <p>As an admin, play a pivotal role in supporting your organizations efficiency, managing resources, and contributing to the overall success of your asset operations.</p>
                         <div>
-                            <button className="btn btn-outline btn-secondary">Join as HR/Admin</button>
+                            <Link to='/joinadmin' className="btn btn-outline btn-secondary">Join as HR/Admin</Link>
                         </div>
                     </div>
                 </div>
@@ -27,7 +28,7 @@ const Banner = () => {
                         <h2 className='text-2xl lg:text-6xl font-bold'>Join As Employee and Shape the Future!</h2>
                         <p>As an employee, Working on innovative projects, and shaping the future of your organization. Explore our diverse roles and join us in creating impactful solutions that make a difference.</p>
                         <div>
-                            <button className="btn btn-outline btn-secondary">Join as an Employee</button>
+                            <Link to='/joinemployee' className="btn btn-outline btn-secondary">Join as an Employee</Link>
                         </div>
                     </div>
                 </div>
