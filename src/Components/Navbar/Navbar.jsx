@@ -3,6 +3,8 @@ import useAuth from "../../Hooks/useAuth";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from '../../../public/logo.png';
 import useAdmin from "../../Hooks/useAdmin";
+import useMyData from "../../Hooks/useMyData";
+import useEmployee from "../../Hooks/useEmployee";
 
 
 const Navbar = () => {
@@ -12,6 +14,10 @@ const Navbar = () => {
     const { user, logOut } = useAuth();
     const navigate = useNavigate();
     const [ isAdmin ] = useAdmin();
+    const { isEmployee } = useEmployee();
+
+    const [myData] = useMyData();
+    const { email, img, name, companylogo } = myData || {};
 
     const changeTheme = () => {
         const html = document.documentElement;
@@ -83,22 +89,22 @@ const Navbar = () => {
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >Add an Employee</NavLink></li>
-                            <li><NavLink to='/profile'
+                            <li><NavLink to='/admin/profile'
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                             >Profile</NavLink></li>
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost btn-square avatar">
                                     <div className="w-10 rounded-lg">
-                                        <img src={user.photoURL} alt={user.displayName} />
+                                        <img src={img} alt={img} />
                                     </div>
                                 </label>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     <li>
-                                        <button className="">{user.displayName}</button>
+                                        <button className="">{name}</button>
                                     </li>
                                     <li>
-                                        <button className="">{user.email}</button>
+                                        <button className="">{email}</button>
                                     </li>
                                     <li>
                                         <button className="btn btn-sm  btn-ghost"
@@ -127,22 +133,22 @@ const Navbar = () => {
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >Make a Custom Request</NavLink></li>
-                                <li><NavLink to='/profile'
+                                <li><NavLink to='/user/profile'
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-xl font-bold underline outline-offset-8" : "font-bold lg:text-indigo-900 dark:text-blue-400 text-lg"}
                                 >Profile</NavLink></li>
                                 <div className="dropdown dropdown-end">
                                     <label tabIndex={0} className="btn btn-ghost btn-square avatar">
                                         <div className="w-10 rounded-lg">
-                                            <img src={user.photoURL} alt={user.displayName} />
+                                            <img src={img} alt={img} />
                                         </div>
                                     </label>
                                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                         <li>
-                                            <button className="">{user.displayName}</button>
+                                            <button className="">{name}</button>
                                         </li>
                                         <li>
-                                            <button className="">{user.email}</button>
+                                            <button className="">{email}</button>
                                         </li>
                                         <li>
                                             <button className="btn btn-sm  btn-ghost"
@@ -185,7 +191,9 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <Link to='/'><img src={logo} alt="" className="h-16 lg:w-40" /></Link>
+                {
+                    isAdmin || isEmployee ? <Link to={isAdmin ? '/admin/home' : '/user/home'}><img src={companylogo} alt="" className="h-16 lg:w-40" /></Link> : <Link to='/'><img src={logo} alt="" className="h-16 lg:w-40" /></Link>
+                }
             </div>
 
             <div className="navbar-center hidden lg:flex">
