@@ -20,8 +20,10 @@ const RequestAsset = () => {
     const [filterType, setFilterType] = useState('');
 
     useEffect(() => {
-        setData(assets);
-    }, [assets])
+        if( assets && !isLoading ){
+            setData(assets);
+        }
+    }, [assets, isLoading])
 
     const { register, handleSubmit, reset } = useForm()
 
@@ -49,6 +51,7 @@ const RequestAsset = () => {
     const onSubmit = async (data) => {
         const requestInfo = {
             assetname: item.name,
+            assetid: item.assetid,
             type: item.type,
             email: user?.email,
             sendername: user?.displayName,
@@ -58,9 +61,7 @@ const RequestAsset = () => {
         }
         const toastId = toast.loading('Asset Request Adding....')
         setShowModal(false);
-        console.log(requestInfo);
         const reqassetres = await axiosSecure.post(`/requestedassets`, requestInfo);
-        console.log(reqassetres);
         if (reqassetres.data.insertedId) {
             reset();
             toast.success(`${item.name} is Added to the Request`, { id: toastId });
@@ -126,11 +127,15 @@ const RequestAsset = () => {
         id: index + 1,
         name: asset.name,
         type: asset.type,
-        quantity: asset.quantity
+        quantity: asset.quantity,
+        assetid: asset._id
     }))
 
     return (
         <div>
+            <Helmet>
+                <title>Assets Strive | Request Asset</title>
+            </Helmet>
             <div className="flex flex-col w-full items-center pt-4 gap-4 bg-gradient-to-t from-teal-300 via-cyan-500 to-cyan-600" data-aos="zoom-in-up">
                 <div className="w-full px-4 flex justify-between flex-col lg:flex-row gap-4 pb-2">
                     <div className="relative">
@@ -161,9 +166,6 @@ const RequestAsset = () => {
                 </div>
             </div>
             <div className='p-12 lg:px-24 lg:py-5'>
-                <Helmet>
-                    <title>Assets Strive | Request Asset</title>
-                </Helmet>
                 <DataTable
                     title='Request For An Asset'
                     columns={columns}
