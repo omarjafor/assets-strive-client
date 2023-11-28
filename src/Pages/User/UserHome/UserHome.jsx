@@ -1,14 +1,22 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useAdmin from "../../../Hooks/useAdmin";
 import useAuth from "../../../Hooks/useAuth";
 import useEmployee from "../../../Hooks/useEmployee";
 import MyCustomRequest from "./MyCustomRequest/MyCustomRequest";
+import MyPendingRequest from "./MyPendingRequest/MyPendingRequest";
+import MyMonthlyRequest from "./MyMonthlyRequest/MyMonthlyRequest";
+import FrequentlyRequested from "./FrequentlyRequested/FrequentlyRequested";
 
 
 const UserHome = () => {
     const { user, loading } = useAuth();
     const { isEmployee, isEmployeeLoading } = useEmployee();
     const [ isAdmin ] = useAdmin();
+    const navigate = useNavigate();
+    
+    if(isAdmin){
+        navigate('/admin/home');
+    }
 
     if ( loading || isEmployeeLoading ) return (
         <div className="mx-auto items-center text-center">
@@ -53,15 +61,10 @@ const UserHome = () => {
                 isEmployee ?
                     <>
                         <MyCustomRequest></MyCustomRequest>
+                        <MyPendingRequest></MyPendingRequest>
+                        <MyMonthlyRequest></MyMonthlyRequest>
+                        <FrequentlyRequested></FrequentlyRequested>
                     </>
-                    :
-                    isAdmin ? <>
-                        <div className="text-center my-4 items-center">
-                            <div className="text-2xl font-bold text-gray-900 sm:text-3xl">
-                                {user?.displayName}, Please Go To Admin <Link to='/admin/home' className="text-green-600">Home</Link>
-                            </div>
-                        </div>
-                    </> 
                     :
                     <>
                         <div className="text-center my-4 items-center">

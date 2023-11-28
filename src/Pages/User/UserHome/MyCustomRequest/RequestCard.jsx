@@ -11,7 +11,6 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const RequestCard = ({ items, index, refetch }) => {
     const [showModal, setShowModal] = useState(false);
     const [updateMode, setUpdateMode] = useState(false);
-
     const { name, whyneed, type, additional, price, image, status, date, _id } = items || {};
 
     const { register, handleSubmit, reset } = useForm()
