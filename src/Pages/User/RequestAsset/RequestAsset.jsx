@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { BsSearch } from "react-icons/bs";
+import useMyData from "../../../Hooks/useMyData";
 
 const RequestAsset = () => {
     const { user } = useAuth();
@@ -18,6 +19,9 @@ const RequestAsset = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filterAvailability, setFilterAvailability] = useState('');
     const [filterType, setFilterType] = useState('');
+
+    const [ myData ] = useMyData();
+    const { company } = myData || {};
 
     useEffect(() => {
         if( assets && !isLoading ){
@@ -57,7 +61,8 @@ const RequestAsset = () => {
             sendername: user?.displayName,
             requestdate: currentDate,
             additionalnote: data.additionalnote,
-            status: 'pending'
+            status: 'pending',
+            company
         }
         const toastId = toast.loading('Asset Request Adding....')
         setShowModal(false);
