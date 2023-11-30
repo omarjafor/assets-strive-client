@@ -6,7 +6,7 @@ import MyCustomRequest from "./MyCustomRequest/MyCustomRequest";
 import MyPendingRequest from "./MyPendingRequest/MyPendingRequest";
 import MyMonthlyRequest from "./MyMonthlyRequest/MyMonthlyRequest";
 import FrequentlyRequested from "./FrequentlyRequested/FrequentlyRequested";
-
+import { Helmet } from 'react-helmet-async';
 
 const UserHome = () => {
     const { user, loading } = useAuth();
@@ -14,9 +14,7 @@ const UserHome = () => {
     const [ isAdmin ] = useAdmin();
     const navigate = useNavigate();
     
-    if(isAdmin){
-        navigate('/admin/home');
-    }
+    
 
     if ( loading || isEmployeeLoading ) return (
         <div className="mx-auto items-center text-center">
@@ -46,9 +44,19 @@ const UserHome = () => {
             </div>
         </div>);
 
+    if (isAdmin) {
+        navigate('/admin/home');
+    }
+    
     return (
         <div>
-            <div className="text-center my-4 items-center mx-auto">
+            <Helmet>
+                <title> Asset Strive | Your Home</title>
+            </Helmet>
+            <div className="text-center items-center mx-auto pt-3">
+                <img src="https://i.ibb.co/5GkzK0M/user.png" alt="" className="h-12 mx-auto" />
+            </div>
+            <div className="text-center mb-4 items-center mx-auto">
                 <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
                     Welcome Back, {user?.displayName} !
                 </h1>

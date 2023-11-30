@@ -21,6 +21,7 @@ import EmployeeList from "../Pages/Admin/EmployeeList/EmployeeList";
 import AddAnEmployee from "../Pages/Admin/AddAnEmployee/AddAnEmployee";
 import Profile from "../Pages/Profile/Profile";
 import Payment from "../Pages/Payment/Payment";
+import IncreaseLimit from "../Pages/Admin/AddAnEmployee/IncreaseLimit";
 
 const router = createBrowserRouter([
     {
@@ -70,8 +71,12 @@ const router = createBrowserRouter([
                 element: <Profile></Profile>
             },
             {
-                path: 'payment',
+                path: 'payment/:price',
                 element: <Payment></Payment>
+            },
+            {
+                path: 'increaselimit',
+                element: <IncreaseLimit></IncreaseLimit>
             }
         ]
     },
