@@ -3,10 +3,20 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { MdFormatListBulletedAdd } from "react-icons/md";
+import useMyData from "../../../Hooks/useMyData";
+import { Helmet } from 'react-helmet-async';
 
 const AddAnAsset = () => {
+    const [myData] = useMyData();
+    const { company } = myData || {};
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
+
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const todayDate = `${year}-${month < 10 ? 0 + month : month}-${day < 10 ? 0 + day : day}`;
 
     const { register, handleSubmit, reset } = useForm()
 
@@ -14,8 +24,10 @@ const AddAnAsset = () => {
         const assetInfo = {
             email: user?.email,
             name: data.name,
-            quantity: data.quantity,
-            type: data.type
+            quantity: parseInt(data.quantity),
+            type: data.type,
+            date: todayDate,
+            company
         }
         const assetRes = await axiosSecure.post('/assets', assetInfo);
         if (assetRes.data.insertedId) {
@@ -26,9 +38,13 @@ const AddAnAsset = () => {
 
     return (
         <div className="lg:mx-24 dark:bg-gray-900">
-            <div className="mx-auto text-center md:w-4/12 my-8">
-                <p className="text-teal-600 mb-2">Add an Assets Here for Admin</p>
-                <h3 className="text-3xl uppercase border-y-4 py-4">Add An Asset</h3>
+            <Helmet>
+                <title>Asset Strive | Add Asset </title>
+            </Helmet>
+            <div className="text-center py-10">
+                <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl">
+                    Add An Asset
+                </h2>
             </div>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)} className="justify-items-center grid">
