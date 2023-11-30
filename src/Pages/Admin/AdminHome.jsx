@@ -1,5 +1,11 @@
 import useMyData from "../../Hooks/useMyData";
 import { Helmet } from 'react-helmet-async';
+import TopMostRequest from "./AdminHome/TopMost/TopMostRequest";
+import MaxPendingRequest from "./AdminHome/TopPending/MaxPendingRequest";
+import LimitedStock from "./AdminHome/LimitedStock/LimitedStock";
+import PieChartDisplay from "./AdminHome/PieChart/PieChartDisplay";
+import ServiceStatistics from "./AdminHome/ServiceStatus/ServiceStatistics";
+import StaticsBarCharts from "./AdminHome/BarCharts/StaticsBarCharts";
 
 const AdminHome = () => {
     const [myData] = useMyData()
@@ -19,6 +25,14 @@ const AdminHome = () => {
                 <p className="mt-1.5 text-sm text-gray-500">
                     Let&apos;s manage your employee & explore your assets 🎉
                 </p>
+            </div>
+            <ServiceStatistics></ServiceStatistics>
+            <MaxPendingRequest></MaxPendingRequest>
+            <TopMostRequest></TopMostRequest>
+            <LimitedStock></LimitedStock>
+            <div className="grid gap-5 items-center justify-center justify-items-center grid-cols-1 lg:grid-cols-2 mx-12">
+                <StaticsBarCharts></StaticsBarCharts>
+                <PieChartDisplay></PieChartDisplay>
             </div>
         </div>
     );

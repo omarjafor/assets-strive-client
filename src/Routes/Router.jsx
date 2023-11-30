@@ -22,6 +22,8 @@ import AddAnEmployee from "../Pages/Admin/AddAnEmployee/AddAnEmployee";
 import Profile from "../Pages/Profile/Profile";
 import Payment from "../Pages/Payment/Payment";
 import IncreaseLimit from "../Pages/Admin/AddAnEmployee/IncreaseLimit";
+import EmployeeRoute from "./EmployeeRoute";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -40,31 +42,31 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'home',
-                element: <AdminHome></AdminHome>
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: 'assetlist',
-                element: <AssetList></AssetList>
+                element: <AdminRoute><AssetList></AssetList></AdminRoute>
             },
             {
                 path: 'addanasset',
-                element: <AddAnAsset></AddAnAsset>
+                element: <AdminRoute><AddAnAsset></AddAnAsset></AdminRoute>
             },
             {
                 path: 'allrequests',
-                element: <AllRequests></AllRequests>
+                element: <AdminRoute><AllRequests></AllRequests></AdminRoute>
             },
             {
                 path: 'customrequestlist',
-                element: <CustomRequestList></CustomRequestList>
+                element: <AdminRoute><CustomRequestList></CustomRequestList></AdminRoute>
             },
             {
                 path: 'employeelist',
-                element: <EmployeeList></EmployeeList>
+                element: <AdminRoute><EmployeeList></EmployeeList></AdminRoute>
             },
             {
                 path: 'addemployee',
-                element: <AddAnEmployee></AddAnEmployee>
+                element: <AdminRoute><AddAnEmployee></AddAnEmployee></AdminRoute>
             },
             {
                 path: 'profile',
@@ -90,19 +92,19 @@ const router = createBrowserRouter([
             },
             {
                 path: 'myassets',
-                element: <MyAssets></MyAssets>
+                element: <EmployeeRoute><MyAssets></MyAssets></EmployeeRoute>
             },
             {
                 path: 'myteam',
-                element: <MyTeam></MyTeam>
+                element: <EmployeeRoute><MyTeam></MyTeam></EmployeeRoute>
             },
             {
                 path: 'requestasset',
-                element: <RequestAsset></RequestAsset>
+                element: <EmployeeRoute><RequestAsset></RequestAsset></EmployeeRoute>
             },
             {
                 path: 'customrequest',
-                element: <CustomRequest></CustomRequest>
+                element: <EmployeeRoute><CustomRequest></CustomRequest></EmployeeRoute>
             },
             {
                 path: 'profile',
