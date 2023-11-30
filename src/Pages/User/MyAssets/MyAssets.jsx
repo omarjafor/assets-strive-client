@@ -20,7 +20,7 @@ const MyAssets = () => {
     const [myData] = useMyData();
     const { companylogo, company } = myData || {};
 
-    console.log(requestedassets);
+
     useEffect(() => {
         if (requestedassets && !isLoading) {
             setData(requestedassets);
@@ -28,16 +28,18 @@ const MyAssets = () => {
     }, [isLoading, requestedassets]);
 
     const handleSearch = async () => {
-        const res = await axiosSecure.get(`/requestedassets/search?query=${searchQuery}`);
-        console.log(res.data);
+        const res = await axiosSecure.get(`/mytest/search?query=${searchQuery}&email=${user?.email}`);
+        // console.log(res);
         setData(res.data);
     }
 
     const handleFilter = async () => {
-        const res = await axiosSecure.get(`/requestedassets/filter?status=${filterStatus}&type=${filterType}`);
+        const res = await axiosSecure.get(`/mytest/filter?status=${filterStatus}&type=${filterType}&email=${user?.email}`);
+        // console.log(res.data);
         setData(res.data);
     }
 
+    // console.log(searchQuery, filterStatus, filterType, data);
     const handleReturn = row => {
         axiosSecure.patch(`/requestedassets/${row._id}`)
             .then(res => {
@@ -179,9 +181,10 @@ const MyAssets = () => {
         {
             name: 'Action',
             selector: row => <div className="flex gap-1">
-                {row.status == 'pending' ? <button onClick={() => handleCancel(row)} className="btn btn-outline my-1">Cancel</button> : <button onClick={() => handlePrint(row)} className="btn btn-primary my-1">Print</button>}
+                {row.status == 'pending' && <button onClick={() => handleCancel(row)} className="btn btn-outline my-1">Cancel</button> }
                 {(row.status == 'approved' && row.type == 'Returnable') && <button onClick={() => handleReturn(row)} className="btn btn-outline my-1">Return</button>}
-                {row.status == 'returned' && <button className="btn btn-outline my-1" disabled>Return</button>}
+                {row.status == 'returned' && <button className="btn btn-outline my-1" disabled>Return</button> }
+                {row.status == 'approved' && <button onClick={() => handlePrint(row)} className="btn btn-primary my-1">Print</button> }
             </div>,
         }
     ];
