@@ -45,7 +45,7 @@ const MyCustomRequest = () => {
                 price: parseInt(data.price),
                 image: res.data.data.display_url
             }
-            console.log(requestInfo);
+            // console.log(requestInfo);
             const customRes = await axiosSecure.patch(`/customrequests/${_id}`, requestInfo);
             if (customRes.data.modifiedCount > 0) {
                 refetch();
@@ -127,16 +127,20 @@ const MyCustomRequest = () => {
                 </h1>
             </div>
             
-            <div className='p-12 lg:px-24 lg:py-5'>
-                <DataTable
-                    title='Custom Request Section'
-                    columns={columns}
-                    data={customRequest}
-                    fixedHeader
-                    pagination
-                    highlightOnHover
-                />
-            </div>
+            {
+                customRequest.length > 0 && (
+                    <div className='p-12 lg:px-24 lg:py-5'>
+                        <DataTable
+                            title='Custom Request Section'
+                            columns={columns}
+                            data={customRequest}
+                            fixedHeader
+                            pagination
+                            highlightOnHover
+                        />
+                    </div>
+                )
+            }
             {showModal ? (
                 <>
                     <div
