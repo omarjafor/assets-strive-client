@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
+import { Helmet } from 'react-helmet-async';
 import { IoIosSend } from "react-icons/io";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import toast from 'react-hot-toast';
+import useMyData from "../../../Hooks/useMyData";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -14,6 +16,8 @@ const CustomRequest = () => {
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
+    const [myData] = useMyData();
+    const { company, companylogo } = myData || {};
 
     const date = new Date();
     const day = date.getDate();
@@ -39,7 +43,9 @@ const CustomRequest = () => {
                 price: parseInt(data.price),
                 image: res.data.data.display_url,
                 status: 'pending',
-                date: currentDate
+                date: currentDate,
+                company,
+                companylogo
             }
             console.log(requestInfo);
             const customRes = await axiosSecure.post('/customrequests', requestInfo);
@@ -52,9 +58,13 @@ const CustomRequest = () => {
 
     return (
         <div className="lg:mx-24 dark:bg-gray-900">
-            <div className="mx-auto text-center md:w-4/12 my-8">
-                <p className="text-teal-600 mb-2">Add a custom request here</p>
-                <h3 className="text-3xl uppercase border-y-4 py-4">Make a Custom Request</h3>
+            <Helmet>
+                <title>Asset Strive | Custom Request</title>
+            </Helmet>
+            <div className="text-center py-10">
+                <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl">
+                    Make a Custom Request
+                </h2>
             </div>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>

@@ -9,7 +9,7 @@ import { useState } from "react";
 const Profile = () => {
     const axiosSecure = useAxiosSecure();
     const [myData, isLoading, refetch] = useMyData();
-    const { email, img, name, birthdate, _id } = myData || {};
+    const { email, img, name, role, birthdate, _id } = myData || {};
     const [showModal, setShowModal] = useState(false);
 
     const { register, handleSubmit, reset } = useForm()
@@ -32,6 +32,8 @@ const Profile = () => {
             refetch();
             reset();
             toast.success(`${data.name} Profile Updated`, { id: toastId });
+        }else{
+            toast.error(`${data.name} Profile Not Updated`, { id: toastId });
         }
     };
 
@@ -80,8 +82,11 @@ const Profile = () => {
                         <p className="block bg-gradient-to-tr from-blue-600 to-blue-800 bg-clip-text font-sans text-base font-medium leading-relaxed text-transparent antialiased">
                             {email}
                         </p>
+                        <p className="block uppercase bg-gradient-to-tr from-blue-600 to-blue-800 bg-clip-text font-sans text-base font-medium leading-relaxed text-transparent antialiased">
+                            {role}
+                        </p>
                         <p className="block bg-gradient-to-tr from-green-800 to-teal-800 bg-clip-text font-sans text-base font-medium leading-relaxed text-transparent antialiased">
-                            Birthday {birthdate}
+                            Birthday : {birthdate}
                         </p>
                     </div>
                     <div className="flex justify-center pb-4 gap-4">
