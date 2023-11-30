@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet-async';
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -38,7 +39,7 @@ const JoinAdmin = () => {
                 companylogo: res.data.data.display_url,
                 birthdate: data.birthdate,
                 password: data.password,
-                amount: data.package,
+                limit: 0,
                 role: 'user'
             }
             console.log(userInfo);
@@ -69,7 +70,7 @@ const JoinAdmin = () => {
                                 if (res.data.insertedId) {
                                     console.log('user added to the database')
                                     toast.success('Your Registration Successful', { id: toastId })
-                                    navigate('/admin/payment');
+                                    navigate(`/admin/payment/${data.package}`);
                                     reset();
                                 }
                             })
@@ -87,6 +88,9 @@ const JoinAdmin = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+            <Helmet>
+                <title> Asset Strive | Join Admin</title>
+            </Helmet>
             <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                     <div>
@@ -145,8 +149,9 @@ const JoinAdmin = () => {
                                             <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
 
                                             </label>
-                                            <select defaultValue='5' value={5} {...register('package', { required: true })}
+                                            <select defaultValue=''  {...register('package', { required: true })}
                                                 className="select select-bordered w-full">
+                                                <option disabled value="">Select Package</option>
                                                 <option value="5">5 Members for $5</option>
                                                 <option value="8">10 Members for $8</option>
                                                 <option value="15">20 Members for $15</option>

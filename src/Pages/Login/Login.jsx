@@ -7,6 +7,7 @@ import auth from '../../Firebase/firebase.config';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const axiosPublic = useAxiosPublic();
@@ -89,6 +90,9 @@ const Login = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+            <Helmet>
+                <title> Asset Strive | Login</title>
+            </Helmet>
             <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                     <div>

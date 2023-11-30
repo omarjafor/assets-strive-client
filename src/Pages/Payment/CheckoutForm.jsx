@@ -6,7 +6,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Swal from "sweetalert2";
 import useMyData from "../../Hooks/useMyData";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ price }) => {
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('');
@@ -16,8 +16,8 @@ const CheckoutForm = () => {
     const navigate = useNavigate();
 
     const [myData] = useMyData();
-    const { email, name, amount } = myData || {};
-    const price = parseInt(amount);
+    const { email, name } = myData || {};
+    // const price = parseInt(amount);
 
     useEffect(() => {
         if (price > 0) {
@@ -76,7 +76,7 @@ const CheckoutForm = () => {
                 //Now Save the payment in the database
                 const payment = {
                     email: email,
-                    payment: price,
+                    payment: parseInt(price),
                     transactionId: paymentIntent.id,
                     date: new Date(),
                     role: 'admin'
