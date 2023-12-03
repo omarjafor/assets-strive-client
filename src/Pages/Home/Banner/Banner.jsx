@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div className="carousel w-full h-[600px]">
             <div id="slide1" className="carousel-item relative w-full">
-                <img src='https://i.ibb.co/GsfS4CD/asset-banner.jpg' className="w-full" />
+                <img src='https://i.ibb.co/H24CQkf/asset-banner.jpg' className="w-full" />
                 <div className="absolute flex items-center text-left h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                     <div className='text-white space-y-7 pl-12 w-1/2'>
                         <h2 className='text-2xl lg:text-6xl font-bold'>Join As Admin and Empower Operations, Drive Efficiency!</h2>
@@ -22,7 +22,7 @@ const Banner = () => {
                 </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full">
-                <img src='https://i.ibb.co/MGXfbNr/asset-banner-2.jpg' className="w-full" />
+                <img src='https://i.ibb.co/nRWxcDh/asset-banner-2.jpg' className="w-full" />
                 <div className="absolute flex items-center text-left h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                     <div className='text-white space-y-7 pl-12 w-1/2'>
                         <h2 className='text-2xl lg:text-6xl font-bold'>Join As Employee and Shape the Future!</h2>

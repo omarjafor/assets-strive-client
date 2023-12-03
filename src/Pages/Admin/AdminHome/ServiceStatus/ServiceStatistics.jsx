@@ -58,7 +58,7 @@ const ServiceStatistics = () => {
                     <div className="bg-white overflow-hidden shadow sm:rounded-lg">
                         <div className="px-4 py-5 flex gap-3 justify-center sm:p-6">
                             <dl>
-                                <img src="https://i.ibb.co/qCwJR0h/users.png" alt="" className="h-12" />
+                                <img src="https://i.ibb.co/1qJYtT4/users.png" alt="" className="h-12" />
                             </dl>
                             <dl>
                                 <dt className="text-sm leading-5 font-medium text-gray-500 truncate">Total Users</dt>
