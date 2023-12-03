@@ -11,7 +11,7 @@ import { useState } from "react";
 
 
 const AddAnEmployee = () => {
-    const [ids, setIds] = useState();
+    const [ids, setIds] = useState([]);
     const axiosSecure = useAxiosSecure();
     const [myData, isLoading] = useMyData();
     const { company, companylogo, limit, payment } = myData || {};
