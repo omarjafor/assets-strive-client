@@ -2,20 +2,45 @@
 
 const About = () => {
     return (
-        <div className="sm:flex items-center max-w-screen-xl mx-auto  p-12 lg:p-6 dark:bg-gray-900 dark:text-white">
-            <div className="sm:w-1/2 p-10">
-                <div className="image object-center text-center">
-                    <img src="https://i.ibb.co/SPz2bzj/about.png" />
-                </div>
+        <div className="mx-40 my-10">
+            <div className="text-left mb-4 items-center mx-auto">
+                <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+                    Asset Strive for Asset Management
+                </h1>
+
+                <p className="mt-1.5 text-lg text-gray-500">
+                    As one of the world&apos;s leading assets managers, help you achieve goals 🎉
+                </p>
             </div>
-            <div className="sm:w-1/2">
-                <div className="text">
-                    <span className="text-gray-500 dark:text-gray-200 border-b-2 border-indigo-600 uppercase">About us</span>
-                    <h2 className="my-4 font-bold text-3xl  sm:text-4xl ">About <span className="text-indigo-600">Asset Strive</span>
-                    </h2>
-                    <p className="text-gray-700 dark:text-gray-300">
-                        At Asset Strive, we empower businesses to take control of their assets seamlessly. Our platform offers a comprehensive solution for companies of all sizes, providing a centralized hub for efficient asset management. Whether you&apos;re a growing startup or an established enterprise, our user-friendly interface allows companies to join as administrators, gaining access to robust tools for asset oversight, maintenance, and optimization.
-                    </p>
+            <div className="sm:flex flex-col lg:flex-row gap-4 items-center justify-evenly mx-auto  p-12 lg:p-6 dark:bg-gray-900 dark:text-white">
+                <div className="w-1/2">
+                    <div className="image object-center text-center">
+                        <img src="https://i.ibb.co/SPz2bzj/about.png" />
+                    </div>
+                </div>
+                <div className="w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="text-left space-y-3 max-w-md">
+                        <img src="https://i.ibb.co/4mDt9vH/man.png" alt="" className="h-16" />
+                        <h2 className="text-lg font-semibold">Our Clients at the Center</h2>
+                        <p className="text-base">Helping our clients achieve their goals is our first priority.</p>
+                    </div>
+                    <div className="text-left space-y-3 max-w-md">
+                        <img src="https://i.ibb.co/MhFQrXB/owner.png" alt="" className="h-16" />
+                        <h2 className="text-lg font-semibold">Meeting our Clients’ Needs
+</h2>
+                        <p className="text-base">To best serve our clients’ needs, we have built our business to be global.</p>
+                    </div>
+                    <div className="text-left space-y-3 max-w-md">
+                        <img src="https://i.ibb.co/44Hpvmk/digital-asset-management.png" alt="" className="h-16" />
+                        <h2 className="text-lg font-semibold">Culture of Excellence
+</h2>
+                        <p className="text-base">We foster a culture of excellence as investors, partners and risk managers.</p>
+                    </div>
+                    <div className="text-left space-y-3 max-w-md">
+                        <img src="https://i.ibb.co/G3QHMFr/making-money.png" alt="" className="h-16" />
+                        <h2 className="text-lg font-semibold">Client-Centric Operations</h2>
+                        <p className="text-base">At the core of our business model rests to client-centric operations.</p>
+                    </div>
                 </div>
             </div>
         </div>
