@@ -41,8 +41,8 @@ const MyMonthlyRequest = () => {
         const dateB = new Date(b.requestdate);
         return dateB - dateA;
     }).filter(data => {
-        const birthMonth = new Date(data.requestdate).getMonth();
-        return birthMonth == currentMonth;
+        const assetMonth = new Date(data.requestdate).getMonth();
+        return assetMonth == currentMonth;
     });
 
     const columns = [
