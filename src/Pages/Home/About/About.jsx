@@ -15,7 +15,7 @@ const About = () => {
             <div className="sm:flex flex-col lg:flex-row gap-4 items-center justify-evenly mx-auto  p-12 lg:p-6 dark:bg-gray-900 dark:text-white">
                 <div className="w-1/2">
                     <div className="image object-center text-center">
-                        <img src="https://i.ibb.co/SPz2bzj/about.png" />
+                        <img src="https://i.ibb.co/6JCCmmq/about.png" />
                     </div>
                 </div>
                 <div className="w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">

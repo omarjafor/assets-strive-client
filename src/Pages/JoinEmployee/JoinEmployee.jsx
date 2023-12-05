@@ -228,7 +228,7 @@ const JoinEmployee = () => {
                     </div>
                 </div>
                 <div className="flex-1 bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 text-center hidden lg:flex">
-                    <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat bg-[url('https://i.ibb.co/NrRDmKc/employee.png')]"
+                    <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat bg-[url('https://i.ibb.co/HTF4Gd0/employee.png')]"
                     >
                     </div>
                 </div>
