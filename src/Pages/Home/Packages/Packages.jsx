@@ -18,7 +18,7 @@ const Packages = () => {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 justify-center justify-items-center gap-8 my-10">
                 <div className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 dark:from-gray-500 dark:via-gray-900 dark:to-black hover:bg-gradient-to-tl bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
-                    <div className="relative m-0 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-2 text-center text-gray-700 shadow-none">
+                    <div className="relative m-0 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center text-gray-700 shadow-none">
                         <p className="block text-lg  font-bold uppercase leading-normal text-white antialiased">
                             standard
                         </p>
