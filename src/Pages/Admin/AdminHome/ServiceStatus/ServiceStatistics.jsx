@@ -25,7 +25,7 @@ const ServiceStatistics = () => {
                     <div className="bg-white overflow-hidden shadow sm:rounded-lg">
                         <div className="px-4 py-5 flex gap-3 justify-center sm:p-6">
                             <dl>
-                                <img src="https://i.ibb.co/1vNTMpb/asset.png" alt="" className="h-12" />
+                                <img src="https://i.postimg.cc/9FpmFVk2/asset-3.png" alt="" className="h-12" />
                             </dl>
                             <dl>
                                 <dt className="text-sm leading-5 font-medium text-gray-500 truncate">Total Assets</dt>
@@ -36,7 +36,7 @@ const ServiceStatistics = () => {
                     <div className="bg-white overflow-hidden shadow sm:rounded-lg">
                         <div className="px-4 py-5 flex gap-3 justify-center sm:p-6">
                             <dl>
-                                <img src="https://i.ibb.co/0KfFdt9/reqs.png" alt="" className="h-12" />
+                                <img src="https://i.postimg.cc/4NZ4gnBw/reqs.png" alt="" className="h-12" />
                             </dl>
                             <dl>
                                 <dt className="text-sm leading-5 font-medium text-gray-500 truncate">Total Request</dt>
@@ -47,7 +47,7 @@ const ServiceStatistics = () => {
                     <div className="bg-white overflow-hidden shadow sm:rounded-lg">
                         <div className="px-4 py-5 flex gap-3 justify-center sm:p-6">
                             <dl>
-                                <img src="https://i.ibb.co/9nZ5szg/cusreq.png" alt="" className="h-12" />
+                                <img src="https://i.postimg.cc/wjj61ZKm/cusreq.png" alt="" className="h-12" />
                             </dl>
                             <dl>
                                 <dt className="text-sm leading-5 font-medium text-gray-500 truncate">Total Custom Request</dt>

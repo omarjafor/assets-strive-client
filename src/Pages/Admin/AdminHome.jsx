@@ -15,7 +15,7 @@ const AdminHome = () => {
                 <title>Asset Strive | Admin Home </title>
             </Helmet>
             <div className="text-center items-center mx-auto py-3">
-                <img src="https://i.ibb.co/jJpm8sY/admin.png" alt="" className="h-12 mx-auto" />
+                <img src="https://i.postimg.cc/MH97qg2Y/admin-3.png" alt="" className="h-12 mx-auto" />
             </div>
             <div className="text-center mb-4 items-center mx-auto">
                 <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
