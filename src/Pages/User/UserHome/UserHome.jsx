@@ -54,7 +54,7 @@ const UserHome = () => {
                 <title> Asset Strive | Your Home</title>
             </Helmet>
             <div className="text-center items-center mx-auto pt-3">
-                <img src="https://i.ibb.co/5GkzK0M/user.png" alt="" className="h-12 mx-auto" />
+                <img src="https://i.postimg.cc/jqNyxs7C/user.png" alt="" className="h-12 mx-auto" />
             </div>
             <div className="text-center mb-4 items-center mx-auto">
                 <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
@@ -77,7 +77,7 @@ const UserHome = () => {
                     <>
                         <div className="text-center my-4 items-center">
                             <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-                                {user?.displayName}, Please Contact with your HR
+                                {user?.displayName}, Please Contact with your HR/Admin
                             </h1>
                         </div>
                     </>
