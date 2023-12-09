@@ -2,6 +2,9 @@
 
 ## [ Live Link](https://asset-strive-omarjafor.web.app/)
 
+### Technology Used: 
+#### React.js, Node.js, Mongodb, Express js, Jwt, Stripe Payment, Firebase, Axios, Tailwind, React Router, React Hook form, Data Table, React Helmet, React toast, Recharts, Sweet Alert.
+
 ### &rarr; Asset Strive Website Features ?
 
 ### &#9755; 1. Role Based Manage:
@@ -42,4 +45,4 @@
 ##### &bull; Admin can use by join as admin with payment.
 ##### &bull; Admin can add or remove employee.
 
-## Lots of feature and many more features are in this website will know by employee and admin only.
+#### Lots of features are in this website will known by employee and admin only.
