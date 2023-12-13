@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const Packages = () => {
 
     return (
-        <div className="mx-40 my-10">
+        <div className="mx-40 py-10">
             <div>
                 <div className="text-left mb-4 items-center mx-auto">
-                    <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
                         Asset Strive Pricing
                     </h1>
 
-                    <p className="mt-1.5 text-lg text-gray-500">
+                    <p className="mt-1.5 text-lg text-gray-500 dark:text-white">
                         As one of the world&apos;s leading assets managers, help you manage employee 🎉
                     </p>
                 </div>

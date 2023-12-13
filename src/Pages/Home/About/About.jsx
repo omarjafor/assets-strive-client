@@ -2,17 +2,17 @@
 
 const About = () => {
     return (
-        <div className="mx-40 my-10">
+        <div className="mx-40 my-10 dark:text-white">
             <div className="text-left mb-4 items-center mx-auto">
-                <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
                     Asset Strive for Asset Management
                 </h1>
 
-                <p className="mt-1.5 text-lg text-gray-500">
+                <p className="mt-1.5 text-lg text-gray-500 dark:text-white">
                     As one of the world&apos;s leading assets managers, help you achieve goals 🎉
                 </p>
             </div>
-            <div className="sm:flex flex-col lg:flex-row gap-4 items-center justify-evenly mx-auto  p-12 lg:p-6 dark:bg-gray-900 dark:text-white">
+            <div className="sm:flex flex-col lg:flex-row gap-4 items-center justify-evenly mx-auto  p-12 lg:p-6">
                 <div className="w-1/2">
                     <div className="image object-center text-center">
                         <img src="https://i.ibb.co/6JCCmmq/about.png" />

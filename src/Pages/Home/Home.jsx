@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
-        <div>
+        <div className="dark:bg-gray-900">
             <Helmet>
                 <title> Asset Strive | Home </title>
             </Helmet>
