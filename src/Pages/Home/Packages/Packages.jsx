@@ -1,23 +1,33 @@
 import { Link } from "react-router-dom";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Packages = () => {
 
+    useEffect(() => {
+
+        AOS.refresh();
+        AOS.init({
+            offset: 120,
+            duration: 3000,
+        });
+
+    }, [])
+
     return (
         <div className="mx-40 py-10">
-            <div>
-                <div className="text-left mb-4 items-center mx-auto">
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
-                        Asset Strive Pricing
-                    </h1>
+            <div className="text-left mb-4 items-center mx-auto" data-aos="zoom-in-up">
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
+                    Asset Strive Pricing
+                </h1>
 
-                    <p className="mt-1.5 text-lg text-gray-500 dark:text-white">
-                        As one of the world&apos;s leading assets managers, help you manage employee 🎉
-                    </p>
-                </div>
+                <p className="mt-1.5 text-lg text-gray-500 dark:text-white">
+                    As one of the world&apos;s leading assets managers, help you manage employee 🎉
+                </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 justify-center justify-items-center gap-8 my-10">
-                <div className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 dark:from-gray-500 dark:via-gray-900 dark:to-black hover:bg-gradient-to-tl bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
+                <div className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 dark:from-gray-500 dark:via-gray-900 dark:to-black hover:bg-gradient-to-tl bg-clip-border p-8 text-white shadow-md shadow-pink-500/40" data-aos="zoom-in-up">
                     <div className="relative m-0 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center text-gray-700 shadow-none">
                         <p className="block text-lg  font-bold uppercase leading-normal text-white antialiased">
                             standard
@@ -151,7 +161,7 @@ const Packages = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 dark:from-gray-500 dark:via-gray-900 dark:to-black hover:bg-gradient-to-tl bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
+                <div className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 dark:from-gray-500 dark:via-gray-900 dark:to-black hover:bg-gradient-to-tl bg-clip-border p-8 text-white shadow-md shadow-pink-500/40" data-aos="zoom-in-up">
                     <div className="relative m-0 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center text-gray-700 shadow-none">
                         <p className="block text-lg  font-bold uppercase leading-normal text-white antialiased">
                             Professional
@@ -285,7 +295,7 @@ const Packages = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 dark:from-gray-500 dark:via-gray-900 dark:to-black hover:bg-gradient-to-tl bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
+                <div className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-r from-teal-400 via-cyan-500 to-cyan-900 dark:from-gray-500 dark:via-gray-900 dark:to-black hover:bg-gradient-to-tl bg-clip-border p-8 text-white shadow-md shadow-pink-500/40" data-aos="zoom-in-up">
                     <div className="relative m-0 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center text-gray-700 shadow-none">
                         <p className="block text-lg  font-bold uppercase leading-normal text-white antialiased">
                             Enterprise
